@@ -40,12 +40,12 @@
         .bg-custom {
             background: linear-gradient(315deg, #4b6cb7 0%, #182848 74%) !important;
         }
-        #cv-generator-details img {
-           max-width: 100%;   /* pour que l’image ne dépasse jamais de son container */
-           height: auto;      /* pour garder les proportions */
-           max-height: 500px; /* limite la hauteur à 500px */
-           object-fit: contain; /* garde proportions sans déformation */
-           border-radius: 8px; /* coins arrondis */
+        #project-details img {
+           max-width: 100%;   
+           height: auto;      
+           max-height: 500px; 
+           object-fit: contain; 
+           border-radius: 8px; 
         }
     </style>
 </head>
@@ -109,17 +109,17 @@
                 <div class="card-body">
                     <h5 class="card-title" data-key="project1_title">CV Generator (Python)</h5>
                     <p class="card-text" data-key="project1_desc">Application Python avec interface graphique pour créer automatiquement un CV au format HTML à partir des données saisies via un formulaire simple et intuitif.</p>
-                    <a href="#!" id="cv-gen-btn" class="btn btn-primary" data-key="see_more_btn">Voir plus</a>
+                    <a href="#!" class="btn btn-primary see-more-btn" data-project="cv-generator" data-key="see_more_btn">Voir plus</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card project-card">
-                <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Projet 2" />
+                <img src="assests/file_conv.png" class="card-img-top" alt="Projet 2" />
                 <div class="card-body">
-                    <h5 class="card-title" data-key="project2_title">Projet 2</h5>
-                    <p class="card-text" data-key="project2_desc">Description courte du projet.</p>
-                    <a href="#" class="btn btn-primary" data-key="see_more_btn">Voir plus</a>
+                    <h5 class="card-title" data-key="project4_title">Smart File Converter</h5>
+                    <p class="card-text" data-key="project4_desc">Convertisseur polyvalent de fichiers texte en PDF et d’images en texte grâce à l’OCR, avec interface graphique simple et efficace.</p>
+                    <a href="#!" class="btn btn-primary see-more-btn" data-project="smart-file" data-key="see_more_btn">Voir plus</a>
                 </div>
             </div>
         </div>
@@ -129,48 +129,28 @@
                 <div class="card-body">
                     <h5 class="card-title" data-key="project3_title">Projet 3</h5>
                     <p class="card-text" data-key="project3_desc">Description courte du projet.</p>
-                    <a href="#" class="btn btn-primary" data-key="see_more_btn">Voir plus</a>
+                    <a href="#!" class="btn btn-primary see-more-btn" data-project="project3" data-key="see_more_btn">Voir plus</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Section Détails CV Generator (cachée par défaut) -->
-<section id="cv-generator-details" class="container my-5" style="display:none;">
-    <h2 class="text-center mb-4" data-key="cv_details_title">Détails du projet CV Generator</h2>
+<!-- Section Détails Projets (cachée par défaut) -->
+<section id="project-details" class="container my-5" style="display:none;">
+    <h2 class="text-center mb-4" id="details-title">Détails du projet</h2>
     <div class="row">
-        <div class="col-md-6">
-            <div style="text-align:center;">
-                <img id="cv-gen-img" src="assests/cv_gen1.jpg" alt="CV Generator Image" class="img-fluid rounded" />
-            </div>
+        <div class="col-md-6 text-center">
+            <img id="details-img" src="" alt="Image projet" class="img-fluid rounded" />
         </div>
         <div class="col-md-6">
-            <h3 data-key="cv_project_title">CV Generator – Générateur de CV HTML avec interface Python</h3>
-            <p>
-                🔹 <strong data-key="cv_desc_label">Description :</strong><br />
-                <span data-key="cv_desc_text">
-                    Développement d’un outil permettant de générer automatiquement un CV au format HTML à partir d’un formulaire graphique créé avec Python (Tkinter). L’utilisateur saisit ses informations via une interface intuitive, puis un fichier HTML stylisé est généré et prêt à être consulté dans un navigateur.
-                </span>
-            </p>
-            <p>
-                🔹 <strong data-key="cv_tech_label">Technologies :</strong>
-                <span data-key="cv_tech_text">Python (Tkinter), HTML, CSS</span>
-            </p>
-            <p>
-                🔹 <strong data-key="cv_features_label">Fonctionnalités clés :</strong>
-            </p>
-            <ul>
-                <li data-key="cv_feat1">Formulaire interactif pour la saisie des données personnelles</li>
-                <li data-key="cv_feat2">Génération dynamique d’un CV HTML avec mise en forme CSS</li>
-                <li data-key="cv_feat3">Possibilité d’ajouter une photo de profil</li>
-                <li data-key="cv_feat4">Sauvegarde du CV généré dans un dossier dédié</li>
-            </ul>
-            <!-- Lien GitHub -->
-            <a href="https://github.com/cyrine56/CV_genrator_python" target="_blank" rel="noopener" class="btn btn-primary mt-3 me-2">
-               Voir sur GitHub
-            </a>
-            <a href="#projects" class="btn btn-secondary mt-3" data-key="back_projects_btn">Retour aux projets</a>
+            <h3 id="details-project-title"></h3>
+            <p><strong>Description :</strong><br /><span id="details-desc"></span></p>
+            <p><strong>Technologies :</strong> <span id="details-tech"></span></p>
+            <p><strong>Fonctionnalités clés :</strong></p>
+            <ul id="details-features"></ul>
+            <a href="#" id="details-github" target="_blank" class="btn btn-primary mt-3 me-2">Voir sur GitHub</a>
+            <button id="back-to-projects" class="btn btn-secondary mt-3">Retour aux projets</button>
         </div>
     </div>
 </section>
@@ -221,24 +201,11 @@
             projects_title: "Mes Projets",
             project1_title: "CV Generator (Python)",
             project1_desc: "Application Python avec interface graphique pour créer automatiquement un CV au format HTML à partir des données saisies via un formulaire simple et intuitif.",
-            project2_title: "Projet 2",
-            project2_desc: "Description courte du projet.",
+            project4_title: "Smart File Converter",
+            project4_desc: "Outil simple et efficace pour convertir des fichiers texte en PDF et extraire du texte à partir d’images grâce à la reconnaissance optique de caractères (OCR).",
             project3_title: "Projet 3",
             project3_desc: "Description courte du projet.",
             see_more_btn: "Voir plus",
-
-            cv_details_title: "Détails du projet CV Generator",
-            cv_project_title: "CV Generator – Générateur de CV HTML avec interface Python",
-            cv_desc_label: "Description :",
-            cv_desc_text: "Développement d’un outil permettant de générer automatiquement un CV au format HTML à partir d’un formulaire graphique créé avec Python (Tkinter). L’utilisateur saisit ses informations via une interface intuitive, puis un fichier HTML stylisé est généré et prêt à être consulté dans un navigateur.",
-            cv_tech_label: "Technologies :",
-            cv_tech_text: "Python (Tkinter), HTML, CSS",
-            cv_features_label: "Fonctionnalités clés :",
-            cv_feat1: "Formulaire interactif pour la saisie des données personnelles",
-            cv_feat2: "Génération dynamique d’un CV HTML avec mise en forme CSS",
-            cv_feat3: "Possibilité d’ajouter une photo de profil",
-            cv_feat4: "Sauvegarde du CV généré dans un dossier dédié",
-            back_projects_btn: "Retour aux projets",
 
             contact_title: "Contact",
             label_name: "Nom",
@@ -266,24 +233,11 @@
             projects_title: "My Projects",
             project1_title: "CV Generator (Python)",
             project1_desc: "Python application with a graphical interface to automatically create an HTML CV from data entered via a simple and intuitive form.",
-            project2_title: "Project 2",
-            project2_desc: "Short project description.",
+            project4_title: "Smart File Converter",
+            project4_desc: "Simple and efficient tool to convert text files to PDF and extract text from images using optical character recognition (OCR).",
             project3_title: "Project 3",
             project3_desc: "Short project description.",
             see_more_btn: "See more",
-
-            cv_details_title: "CV Generator Project Details",
-            cv_project_title: "CV Generator – HTML CV Generator with Python Interface",
-            cv_desc_label: "Description:",
-            cv_desc_text: "Development of a tool to automatically generate an HTML CV from a graphical form created with Python (Tkinter). The user inputs their information via an intuitive interface, then a styled HTML file is generated and ready to be viewed in a browser.",
-            cv_tech_label: "Technologies:",
-            cv_tech_text: "Python (Tkinter), HTML, CSS",
-            cv_features_label: "Key features:",
-            cv_feat1: "Interactive form for entering personal data",
-            cv_feat2: "Dynamic generation of an HTML CV with CSS styling",
-            cv_feat3: "Ability to add a profile photo",
-            cv_feat4: "Saving the generated CV in a dedicated folder",
-            back_projects_btn: "Back to projects",
 
             contact_title: "Contact",
             label_name: "Name",
@@ -329,23 +283,128 @@
         applyTranslations(currentLang);
     });
 
-    // Affiche la section détails CV Generator et scroll vers elle
-    document.getElementById("cv-gen-btn").addEventListener("click", function(event) {
-        event.preventDefault();
-        const detailsSection = document.getElementById("cv-generator-details");
-        detailsSection.style.display = "block";
-        detailsSection.scrollIntoView({ behavior: 'smooth' });
+    // Données projets avec plusieurs images
+    const projectsData = {
+        "cv-generator": {
+            title: "CV Generator – Générateur de CV HTML avec interface Python",
+            desc: "Développement d’un outil permettant de générer automatiquement un CV au format HTML à partir d’un formulaire graphique créé avec Python (Tkinter). L’utilisateur saisit ses informations via une interface intuitive, puis un fichier HTML stylisé est généré et prêt à être consulté dans un navigateur.",
+            tech: "Python (Tkinter), HTML, CSS",
+            features: [
+                "Formulaire interactif pour la saisie des données personnelles",
+                "Génération dynamique d’un CV HTML avec mise en forme CSS",
+                "Possibilité d’ajouter une photo de profil",
+                "Sauvegarde du CV généré dans un dossier dédié"
+            ],
+            imgs: [
+                "assests/cv_gen1.jpg",
+                "assests/cv-gen2.jpg"
+            ],
+            github: "https://github.com/cyrine56/CV_genrator_python"
+        },
+        "smart-file": {
+            title: "Smart File Converter",
+            desc: "Outil simple et performant permettant de convertir des fichiers texte en PDF et d’extraire du texte depuis des images grâce à la reconnaissance optique de caractères (OCR). L’application dispose d’une interface graphique intuitive facilitant son utilisation.",
+            tech: "Python, OCR (bibliothèque Tesseract), génération PDF, Tkinter (interface graphique)",
+            features: [
+                "Conversion rapide et fiable de fichiers texte (.txt) en documents PDF",
+                "Extraction de texte précis à partir d’images (.png, .jpg, etc.) via OCR",
+                "Interface graphique conviviale avec sélection facile des fichiers et affichage des résultats",
+                "Messages d’erreur clairs et retours visuels pour une meilleure expérience utilisateur"
+            ],
+            imgs: [
+                "assests/conv.png",
+                
+            ],
+            github: "https://github.com/cyrine56/tesseract-ocr-project" 
+        },
+        "project3": {
+            title: "Projet 3",
+            desc: "Description courte du projet.",
+            tech: "Technologies utilisées",
+            features: [
+                "Fonctionnalité 1",
+                "Fonctionnalité 2"
+            ],
+            imgs: [
+                "https://via.placeholder.com/350x200?text=Project+3+Image+1",
+                "https://via.placeholder.com/350x200?text=Project+3+Image+2"
+            ],
+            github: "#"
+        }
+    };
+
+    // Variables pour gérer l'alternance images
+    let currentProjectKey = null;
+    let currentImgIndex = 0;
+    let imageInterval = null;
+
+    // Fonction qui démarre la rotation des images
+    function startImageRotation(imgs) {
+        const imgElement = document.getElementById("details-img");
+        currentImgIndex = 0;
+        imgElement.src = imgs[currentImgIndex];
+
+        if (imageInterval) clearInterval(imageInterval);
+
+        imageInterval = setInterval(() => {
+            currentImgIndex = (currentImgIndex + 1) % imgs.length;
+            imgElement.src = imgs[currentImgIndex];
+        }, 3000);
+    }
+
+    // Gestion des clics "Voir plus"
+    document.querySelectorAll(".see-more-btn").forEach(btn => {
+        btn.addEventListener("click", e => {
+            e.preventDefault();
+            const projectKey = btn.getAttribute("data-project");
+            const detailsSection = document.getElementById("project-details");
+            const data = projectsData[projectKey];
+
+            if (!data) return;
+
+            currentProjectKey = projectKey;
+
+            // Remplir contenu
+            document.getElementById("details-title").innerText = `Détails du projet : ${data.title}`;
+            document.getElementById("details-project-title").innerText = data.title;
+            document.getElementById("details-desc").innerText = data.desc;
+            document.getElementById("details-tech").innerText = data.tech;
+            document.getElementById("details-github").href = data.github;
+
+            // Liste des fonctionnalités
+            const featuresList = document.getElementById("details-features");
+            featuresList.innerHTML = "";
+            data.features.forEach(f => {
+                const li = document.createElement("li");
+                li.innerText = f;
+                featuresList.appendChild(li);
+            });
+
+            // Afficher la section détails
+            detailsSection.style.display = "block";
+            detailsSection.scrollIntoView({ behavior: "smooth" });
+
+            // Démarrer l'alternance images
+            if(data.imgs && data.imgs.length > 0) {
+                startImageRotation(data.imgs);
+            } else {
+                document.getElementById("details-img").src = "";
+                if (imageInterval) clearInterval(imageInterval);
+            }
+        });
     });
 
-    // Alternance automatique des images dans la section détails
-    const images = ["assests/cv_gen1.jpg", "assests/cv-gen2.jpg"];
-    let currentImgIndex = 0;
-    const imgElement = document.getElementById("cv-gen-img");
+    // Bouton retour aux projets
+    document.getElementById("back-to-projects").addEventListener("click", () => {
+        const detailsSection = document.getElementById("project-details");
+        detailsSection.style.display = "none";
 
-    setInterval(() => {
-        currentImgIndex = (currentImgIndex + 1) % images.length;
-        imgElement.src = images[currentImgIndex];
-    }, 3000); // toutes les 3 secondes
+        // Stop rotation images
+        if (imageInterval) clearInterval(imageInterval);
+        imageInterval = null;
+
+        document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
+    });
 
     // Initialiser la langue à FR au chargement
     window.onload = () => applyTranslations(currentLang);
