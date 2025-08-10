@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mon Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth; /* pour navigation fluide */
+        }
+        header {
+            background-color: #4b6cb7;
+            background-image: linear-gradient(315deg, #4b6cb7 0%, #182848 74%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        header img {
+            width: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 4px solid white;
+        }
+        .project-card {
+            transition: transform 0.3s;
+        }
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+        footer {
+            background-color: #182848;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        /* Navbar avec le même dégradé que le header */
+        .bg-custom {
+            background: linear-gradient(315deg, #4b6cb7 0%, #182848 74%) !important;
+        }
+        #cv-generator-details img {
+           max-width: 100%;   /* pour que l’image ne dépasse jamais de son container */
+           height: auto;      /* pour garder les proportions */
+           max-height: 500px; /* limite la hauteur à 500px */
+           object-fit: contain; /* garde proportions sans déformation */
+           border-radius: 8px; /* coins arrondis */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Barre de navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-custom fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" style="color: aliceblue;" href="#" data-key="nav_brand">Portfolio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item">
+                    <a class="btn btn-outline-light ms-3" href="#about" data-key="nav_about">À propos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-light ms-3" href="#projects" data-key="nav_projects">Projets</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-light ms-3" href="#contact" data-key="nav_contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <button id="lang-btn" class="btn btn-outline-light ms-3">EN</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Section Accueil -->
+<header>
+    <img src="assests/pdp.png" alt="Photo de profil" />
+    <h1 data-key="header_name">Chaybi Cyrine</h1>
+    <p data-key="header_job">Software developer</p>
+    <a href="https://www.linkedin.com/in/chaybi-cyrine-81a094208/" class="btn btn-light m-2" data-key="linkedin_btn">LinkedIn</a>
+    <a href="https://github.com/cyrine56?tab=repositories" class="btn btn-outline-light m-2" data-key="github_btn">GitHub</a>
+</header>
+
+<!-- Section À propos -->
+<section id="about" class="container my-5">
+    <h2 class="text-center mb-4" data-key="about_title">À propos</h2>
+    <p class="text-center" data-key="about_text">
+        💻 Passionnée par le développement logiciel, je possède 2 ans d’expérience en tant que Software Developer. 
+        J’ai eu l’opportunité de réaliser plusieurs stages dans le développement web et mobile, 
+        ce qui m’a permis de travailler sur des projets variés allant de la conception d’interfaces 
+        à la mise en place de fonctionnalités back-end. En parallèle, je développe régulièrement 
+        des projets personnels, que je partage ici afin de montrer ma créativité, ma curiosité 
+        et ma volonté d’apprendre en continu.
+    </p>
+</section>
+
+<!-- Section Projets -->
+<section id="projects" class="container my-5">
+    <h2 class="text-center mb-4" data-key="projects_title">Mes Projets</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card project-card">
+                <img src="assests/cv_gen1.jpg" class="card-img-top" alt="Projet 1" />
+                <div class="card-body">
+                    <h5 class="card-title" data-key="project1_title">CV Generator (Python)</h5>
+                    <p class="card-text" data-key="project1_desc">Application Python avec interface graphique pour créer automatiquement un CV au format HTML à partir des données saisies via un formulaire simple et intuitif.</p>
+                    <a href="#!" id="cv-gen-btn" class="btn btn-primary" data-key="see_more_btn">Voir plus</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card project-card">
+                <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Projet 2" />
+                <div class="card-body">
+                    <h5 class="card-title" data-key="project2_title">Projet 2</h5>
+                    <p class="card-text" data-key="project2_desc">Description courte du projet.</p>
+                    <a href="#" class="btn btn-primary" data-key="see_more_btn">Voir plus</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card project-card">
+                <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Projet 3" />
+                <div class="card-body">
+                    <h5 class="card-title" data-key="project3_title">Projet 3</h5>
+                    <p class="card-text" data-key="project3_desc">Description courte du projet.</p>
+                    <a href="#" class="btn btn-primary" data-key="see_more_btn">Voir plus</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Détails CV Generator (cachée par défaut) -->
+<section id="cv-generator-details" class="container my-5" style="display:none;">
+    <h2 class="text-center mb-4" data-key="cv_details_title">Détails du projet CV Generator</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <div style="text-align:center;">
+                <img id="cv-gen-img" src="assests/cv_gen1.jpg" alt="CV Generator Image" class="img-fluid rounded" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h3 data-key="cv_project_title">CV Generator – Générateur de CV HTML avec interface Python</h3>
+            <p>
+                🔹 <strong data-key="cv_desc_label">Description :</strong><br />
+                <span data-key="cv_desc_text">
+                    Développement d’un outil permettant de générer automatiquement un CV au format HTML à partir d’un formulaire graphique créé avec Python (Tkinter). L’utilisateur saisit ses informations via une interface intuitive, puis un fichier HTML stylisé est généré et prêt à être consulté dans un navigateur.
+                </span>
+            </p>
+            <p>
+                🔹 <strong data-key="cv_tech_label">Technologies :</strong>
+                <span data-key="cv_tech_text">Python (Tkinter), HTML, CSS</span>
+            </p>
+            <p>
+                🔹 <strong data-key="cv_features_label">Fonctionnalités clés :</strong>
+            </p>
+            <ul>
+                <li data-key="cv_feat1">Formulaire interactif pour la saisie des données personnelles</li>
+                <li data-key="cv_feat2">Génération dynamique d’un CV HTML avec mise en forme CSS</li>
+                <li data-key="cv_feat3">Possibilité d’ajouter une photo de profil</li>
+                <li data-key="cv_feat4">Sauvegarde du CV généré dans un dossier dédié</li>
+            </ul>
+            <!-- Lien GitHub -->
+            <a href="https://github.com/cyrine56/CV_genrator_python" target="_blank" rel="noopener" class="btn btn-primary mt-3 me-2">
+               Voir sur GitHub
+            </a>
+            <a href="#projects" class="btn btn-secondary mt-3" data-key="back_projects_btn">Retour aux projets</a>
+        </div>
+    </div>
+</section>
+
+<!-- Section Contact -->
+<section id="contact" class="container my-5">
+    <h2 class="text-center mb-4" data-key="contact_title">Contact</h2>
+    <form class="w-50 mx-auto">
+        <div class="mb-3">
+            <label for="nom" class="form-label" data-key="label_name">Nom</label>
+            <input type="text" class="form-control" id="nom" placeholder="Votre nom" data-placeholder-key="placeholder_name" />
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label" data-key="label_email">Adresse Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Votre email" data-placeholder-key="placeholder_email" />
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label" data-key="label_message">Message</label>
+            <textarea class="form-control" id="message" rows="4" placeholder="Votre message" data-placeholder-key="placeholder_message"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" data-key="send_btn">Envoyer</button>
+    </form>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2025 Chaybi Cyrine - Tous droits réservés</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    const translations = {
+        fr: {
+            nav_brand: "Portfolio",
+            nav_about: "À propos",
+            nav_projects: "Projets",
+            nav_contact: "Contact",
+
+            header_name: "Chaybi Cyrine",
+            header_job: "Software developer",
+            linkedin_btn: "LinkedIn",
+            github_btn: "GitHub",
+
+            about_title: "À propos",
+            about_text: "💻 Passionnée par le développement logiciel, je possède 2 ans d’expérience en tant que Software Developer. J’ai eu l’opportunité de réaliser plusieurs stages dans le développement web et mobile, ce qui m’a permis de travailler sur des projets variés allant de la conception d’interfaces à la mise en place de fonctionnalités back-end. En parallèle, je développe régulièrement des projets personnels, que je partage ici afin de montrer ma créativité, ma curiosité et ma volonté d’apprendre en continu.",
+
+            projects_title: "Mes Projets",
+            project1_title: "CV Generator (Python)",
+            project1_desc: "Application Python avec interface graphique pour créer automatiquement un CV au format HTML à partir des données saisies via un formulaire simple et intuitif.",
+            project2_title: "Projet 2",
+            project2_desc: "Description courte du projet.",
+            project3_title: "Projet 3",
+            project3_desc: "Description courte du projet.",
+            see_more_btn: "Voir plus",
+
+            cv_details_title: "Détails du projet CV Generator",
+            cv_project_title: "CV Generator – Générateur de CV HTML avec interface Python",
+            cv_desc_label: "Description :",
+            cv_desc_text: "Développement d’un outil permettant de générer automatiquement un CV au format HTML à partir d’un formulaire graphique créé avec Python (Tkinter). L’utilisateur saisit ses informations via une interface intuitive, puis un fichier HTML stylisé est généré et prêt à être consulté dans un navigateur.",
+            cv_tech_label: "Technologies :",
+            cv_tech_text: "Python (Tkinter), HTML, CSS",
+            cv_features_label: "Fonctionnalités clés :",
+            cv_feat1: "Formulaire interactif pour la saisie des données personnelles",
+            cv_feat2: "Génération dynamique d’un CV HTML avec mise en forme CSS",
+            cv_feat3: "Possibilité d’ajouter une photo de profil",
+            cv_feat4: "Sauvegarde du CV généré dans un dossier dédié",
+            back_projects_btn: "Retour aux projets",
+
+            contact_title: "Contact",
+            label_name: "Nom",
+            placeholder_name: "Votre nom",
+            label_email: "Adresse Email",
+            placeholder_email: "Votre email",
+            label_message: "Message",
+            placeholder_message: "Votre message",
+            send_btn: "Envoyer"
+        },
+        en: {
+            nav_brand: "Portfolio",
+            nav_about: "About",
+            nav_projects: "Projects",
+            nav_contact: "Contact",
+
+            header_name: "Chaybi Cyrine",
+            header_job: "Software Developer",
+            linkedin_btn: "LinkedIn",
+            github_btn: "GitHub",
+
+            about_title: "About",
+            about_text: "💻 Passionate about software development, I have 2 years of experience as a Software Developer. I have had the opportunity to do several internships in web and mobile development, which allowed me to work on various projects ranging from interface design to backend functionality implementation. Meanwhile, I regularly develop personal projects, which I share here to showcase my creativity, curiosity, and continuous learning spirit.",
+
+            projects_title: "My Projects",
+            project1_title: "CV Generator (Python)",
+            project1_desc: "Python application with a graphical interface to automatically create an HTML CV from data entered via a simple and intuitive form.",
+            project2_title: "Project 2",
+            project2_desc: "Short project description.",
+            project3_title: "Project 3",
+            project3_desc: "Short project description.",
+            see_more_btn: "See more",
+
+            cv_details_title: "CV Generator Project Details",
+            cv_project_title: "CV Generator – HTML CV Generator with Python Interface",
+            cv_desc_label: "Description:",
+            cv_desc_text: "Development of a tool to automatically generate an HTML CV from a graphical form created with Python (Tkinter). The user inputs their information via an intuitive interface, then a styled HTML file is generated and ready to be viewed in a browser.",
+            cv_tech_label: "Technologies:",
+            cv_tech_text: "Python (Tkinter), HTML, CSS",
+            cv_features_label: "Key features:",
+            cv_feat1: "Interactive form for entering personal data",
+            cv_feat2: "Dynamic generation of an HTML CV with CSS styling",
+            cv_feat3: "Ability to add a profile photo",
+            cv_feat4: "Saving the generated CV in a dedicated folder",
+            back_projects_btn: "Back to projects",
+
+            contact_title: "Contact",
+            label_name: "Name",
+            placeholder_name: "Your name",
+            label_email: "Email address",
+            placeholder_email: "Your email",
+            label_message: "Message",
+            placeholder_message: "Your message",
+            send_btn: "Send"
+        }
+    };
+
+    function applyTranslations(lang) {
+        document.querySelectorAll("[data-key]").forEach(el => {
+            const key = el.getAttribute("data-key");
+            if (translations[lang][key]) {
+                el.innerText = translations[lang][key];
+            }
+        });
+
+        // Pour les placeholders
+        document.querySelectorAll("[data-placeholder-key]").forEach(el => {
+            const key = el.getAttribute("data-placeholder-key");
+            if (translations[lang][key]) {
+                el.placeholder = translations[lang][key];
+            }
+        });
+    }
+
+    const langBtn = document.getElementById("lang-btn");
+    let currentLang = "fr";
+
+    langBtn.addEventListener("click", function () {
+        if (currentLang === "fr") {
+            currentLang = "en";
+            document.documentElement.lang = "en";
+            langBtn.innerText = "FR";
+        } else {
+            currentLang = "fr";
+            document.documentElement.lang = "fr";
+            langBtn.innerText = "EN";
+        }
+        applyTranslations(currentLang);
+    });
+
+    // Affiche la section détails CV Generator et scroll vers elle
+    document.getElementById("cv-gen-btn").addEventListener("click", function(event) {
+        event.preventDefault();
+        const detailsSection = document.getElementById("cv-generator-details");
+        detailsSection.style.display = "block";
+        detailsSection.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Alternance automatique des images dans la section détails
+    const images = ["assests/cv_gen1.jpg", "assests/cv-gen2.jpg"];
+    let currentImgIndex = 0;
+    const imgElement = document.getElementById("cv-gen-img");
+
+    setInterval(() => {
+        currentImgIndex = (currentImgIndex + 1) % images.length;
+        imgElement.src = images[currentImgIndex];
+    }, 3000); // toutes les 3 secondes
+
+    // Initialiser la langue à FR au chargement
+    window.onload = () => applyTranslations(currentLang);
+</script>
+
+</body>
+</html>
